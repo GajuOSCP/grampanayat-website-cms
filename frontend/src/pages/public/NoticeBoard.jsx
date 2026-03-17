@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Bell, Calendar, FileText, Download, Search, AlertCircle, Info, Landmark } from 'lucide-react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 
 const NoticeBoard = () => {
     const [notices, setNotices] = useState([]);
@@ -97,7 +97,7 @@ const NoticeBoard = () => {
                                         </div>
                                         {notice.pdfUrl && (
                                             <a 
-                                                href={`http://localhost:5005${notice.pdfUrl}`} 
+                                                href={`${ASSET_BASE_URL}${notice.pdfUrl}`} 
                                                 target="_blank" 
                                                 rel="noopener noreferrer"
                                                 className="bg-slate-900 text-white px-8 py-3 rounded-2xl font-black flex items-center gap-2 hover:bg-red-600 transition-all shadow-xl active:scale-95"

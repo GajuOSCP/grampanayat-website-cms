@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Edit, Save, Upload, Info, Image as ImageIcon, CheckCircle } from 'lucide-react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import toast from 'react-hot-toast';
 
 const ManageVillageInfo = () => {
@@ -184,7 +184,7 @@ const ManageVillageInfo = () => {
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                             {currentInfo?.images?.map((img, idx) => (
                                                 <div key={idx} className="aspect-square rounded-2xl overflow-hidden border-2 border-slate-100 shadow-inner group relative">
-                                                    <img src={`http://localhost:5005${img}`} className="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Gallery" />
+                                                    <img src={`${ASSET_BASE_URL}${img}`} className="w-full h-full object-cover transition-transform group-hover:scale-110" alt="Gallery" />
                                                     <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                                         <ImageIcon className="text-white" size={24} />
                                                     </div>

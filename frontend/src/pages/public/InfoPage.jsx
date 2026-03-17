@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, MapPin, Share2 } from 'lucide-react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -52,7 +52,7 @@ const InfoPage = ({ slugProp }) => {
             <section className="relative h-[70vh] min-h-[500px] flex items-end">
                 <div className="absolute inset-0">
                     <img 
-                        src={info.mainImage ? `http://localhost:5005${info.mainImage}` : "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0"} 
+                        src={info.mainImage ? `${ASSET_BASE_URL}${info.mainImage}` : "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0"} 
                         className="w-full h-full object-cover shadow-2xl" 
                         alt={info.title} 
                     />
@@ -128,7 +128,7 @@ const InfoPage = ({ slugProp }) => {
                                                 {info.images.map((img, idx) => (
                                                     <SwiperSlide key={idx}>
                                                         <img 
-                                                            src={`http://localhost:5005${img}`} 
+                                                            src={`${ASSET_BASE_URL}${img}`} 
                                                             className="w-full h-full object-cover" 
                                                             alt={`${info.title} ${idx + 1}`} 
                                                         />

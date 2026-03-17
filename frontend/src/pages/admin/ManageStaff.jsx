@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Plus, Edit, Trash2, Users, X, Upload, Phone, UserCheck } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -118,7 +118,7 @@ const ManageStaff = () => {
                             <td className="px-6 py-4">
                                 <div className="flex items-center gap-4">
                                     <img 
-                                        src={staff.photoUrl ? `http://localhost:5005${staff.photoUrl}` : '/placeholder-profile.png'} 
+                                        src={staff.photoUrl ? `${ASSET_BASE_URL}${staff.photoUrl}` : '/placeholder-profile.png'} 
                                         className="h-10 w-10 rounded-full object-cover border border-slate-200" 
                                         alt={staff.name} 
                                     />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Calendar, ArrowLeft, Share2, Facebook, Twitter, MessageSquare, Landmark, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -50,7 +50,7 @@ const NewsDetails = () => {
             {/* Header / Banner */}
             <div className="relative h-[60vh] min-h-[500px] overflow-hidden">
                 <img 
-                    src={item.imageUrl ? `http://localhost:5005${item.imageUrl}` : 'https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?q=80&w=2070&auto=format&fit=crop'} 
+                    src={item.imageUrl ? `${ASSET_BASE_URL}${item.imageUrl}` : 'https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?q=80&w=2070&auto=format&fit=crop'} 
                     className="w-full h-full object-cover" 
                     alt={item.title} 
                 />
@@ -132,7 +132,7 @@ const NewsDetails = () => {
                                         <div className="flex gap-6 items-center">
                                             <div className="h-24 w-24 shrink-0 rounded-[2rem] overflow-hidden shadow-lg border-4 border-slate-50">
                                                 <img 
-                                                    src={news.imageUrl ? `http://localhost:5005${news.imageUrl}` : 'https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?q=80&w=2070&auto=format&fit=crop'} 
+                                                    src={news.imageUrl ? `${ASSET_BASE_URL}${news.imageUrl}` : 'https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?q=80&w=2070&auto=format&fit=crop'} 
                                                     className="h-full w-full object-cover group-hover:scale-110 transition duration-700" 
                                                     alt="News" 
                                                 />

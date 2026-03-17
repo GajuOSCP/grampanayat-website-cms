@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Plus, Trash2, Image as ImageIcon, X, Upload } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -112,7 +112,7 @@ const ManageGallery = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {images.map((img) => (
                     <div key={img._id} className="relative group bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden aspect-square">
-                        <img src={`http://localhost:5005${img.imageUrl}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Gallery" />
+                        <img src={`${ASSET_BASE_URL}${img.imageUrl}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Gallery" />
                         <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-2">
                             <button 
                                 onClick={() => openEditModal(img)}

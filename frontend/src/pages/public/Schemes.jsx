@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Landmark, GraduationCap, Home as HomeIcon, Droplets, Zap, ShieldCheck, ArrowUpRight, Search, FileText } from 'lucide-react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 
 const Schemes = () => {
     const [schemes, setSchemes] = useState([]);
@@ -85,7 +85,7 @@ const Schemes = () => {
                         >
                             <div className="h-48 relative">
                                 <img 
-                                    src={scheme.image ? `http://localhost:5005${scheme.image}` : 'https://images.unsplash.com/photo-1541888941255-081d746dbdba?q=80&w=2070&auto=format&fit=crop'} 
+                                    src={scheme.image ? `${ASSET_BASE_URL}${scheme.image}` : 'https://images.unsplash.com/photo-1541888941255-081d746dbdba?q=80&w=2070&auto=format&fit=crop'} 
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                                     alt={scheme.title} 
                                 />

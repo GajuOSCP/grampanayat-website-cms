@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Save, Upload, MapPin, Phone, Mail, Globe, User, Text, Building2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useSettings } from '../../context/SettingsContext';
@@ -179,7 +179,7 @@ const GeneralSettings = () => {
                                         <span className="absolute -top-2 -right-2 bg-primary-500 text-white text-[8px] px-1 rounded-full font-bold">New</span>
                                     </div>
                                 ) : (
-                                    settings?.logoUrl && <img src={`http://localhost:5005${settings.logoUrl}`} className="h-12 mt-2 object-contain border p-1 rounded" alt="Logo" />
+                                    settings?.logoUrl && <img src={`${ASSET_BASE_URL}${settings.logoUrl}`} className="h-12 mt-2 object-contain border p-1 rounded" alt="Logo" />
                                 )}
                             </div>
                         </div>
@@ -297,7 +297,7 @@ const GeneralSettings = () => {
                                         <span className="absolute -top-3 -right-3 bg-primary-500 text-white text-xs px-2 py-1 rounded-full font-bold shadow-md">New</span>
                                     </div>
                                 ) : (
-                                    settings?.sarpanchPhoto && <img src={`http://localhost:5005${settings.sarpanchPhoto}`} className="h-40 w-40 object-cover rounded-xl border-2 border-slate-100" alt="Sarpanch" />
+                                    settings?.sarpanchPhoto && <img src={`${ASSET_BASE_URL}${settings.sarpanchPhoto}`} className="h-40 w-40 object-cover rounded-xl border-2 border-slate-100" alt="Sarpanch" />
                                 )}
                             </div>
                         </div>
@@ -338,7 +338,7 @@ const GeneralSettings = () => {
                                     <p className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-tighter">सध्याचे बॅनर्स:</p>
                                     <div className="flex gap-2 flex-wrap">
                                         {settings?.heroImages?.map((url, i) => (
-                                            <img key={i} src={`http://localhost:5005${url}`} className="h-20 w-32 object-cover rounded border border-slate-200 opacity-60" alt={`Hero ${i}`} />
+                                            <img key={i} src={`${ASSET_BASE_URL}${url}`} className="h-20 w-32 object-cover rounded border border-slate-200 opacity-60" alt={`Hero ${i}`} />
                                         ))}
                                     </div>
                                 </div>

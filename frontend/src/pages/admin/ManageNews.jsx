@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Plus, Edit, Trash2, Newspaper, X } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -123,7 +123,7 @@ const ManageNews = () => {
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-3">
                                         {item.imageUrl && (
-                                            <img src={`http://localhost:5005${item.imageUrl}`} className="h-10 w-10 rounded object-cover shadow-sm" alt="News" />
+                                            <img src={`${ASSET_BASE_URL}${item.imageUrl}`} className="h-10 w-10 rounded object-cover shadow-sm" alt="News" />
                                         )}
                                         <div>
                                             <p className="font-bold text-slate-800">{item.title}</p>

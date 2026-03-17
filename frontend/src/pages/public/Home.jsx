@@ -9,7 +9,7 @@ import {
     Shield, Hospital, Truck, ScanFace, UserCheck, Search, Globe, Lock, Scale, Lightbulb
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { useSettings } from '../../context/SettingsContext';
 
 // Swiper Imports
@@ -99,7 +99,7 @@ const Home = () => {
             <section className="relative h-[650px] flex items-center overflow-hidden">
                 <div className="absolute inset-0 bg-slate-900">
                     <img 
-                        src={settings?.heroImages?.[0] ? `http://localhost:5005${settings.heroImages[0]}?v=${new Date().getTime()}` : "https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?q=80&w=2070&auto=format&fit=crop"} 
+                        src={settings?.heroImages?.[0] ? `${ASSET_BASE_URL}${settings.heroImages[0]}?v=${new Date().getTime()}` : "https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?q=80&w=2070&auto=format&fit=crop"} 
                         className="w-full h-full object-cover opacity-60 scale-105"
                         alt="Village Landscape"
                     />
@@ -218,7 +218,7 @@ const Home = () => {
                         >
                             <div className="aspect-square rounded-[4rem] overflow-hidden shadow-2xl border-[12px] border-slate-50 relative z-10">
                                 <img 
-                                    src={settings?.sarpanchPhoto ? `http://localhost:5005${settings.sarpanchPhoto}` : "https://images.unsplash.com/photo-1599566630152-783d443c9943?q=80&w=1887&auto=format&fit=crop"} 
+                                    src={settings?.sarpanchPhoto ? `${ASSET_BASE_URL}${settings.sarpanchPhoto}` : "https://images.unsplash.com/photo-1599566630152-783d443c9943?q=80&w=1887&auto=format&fit=crop"} 
                                     className="w-full h-full object-cover" 
                                     alt="Sarpanch" 
                                 />
@@ -314,7 +314,7 @@ const Home = () => {
                                                  >
                                                      <div className="w-[160px] h-[160px] rounded-xl overflow-hidden mb-5 border-4 border-slate-50 shadow-md group-hover:shadow-lg transition-all">
                                                          <img 
-                                                             src={member.photoUrl ? `http://localhost:5005${member.photoUrl}` : `https://ui-avatars.com/api/?name=${member.name}&background=${accentColor.replace('#', '')}&color=fff`} 
+                                                             src={member.photoUrl ? `${ASSET_BASE_URL}${member.photoUrl}` : `https://ui-avatars.com/api/?name=${member.name}&background=${accentColor.replace('#', '')}&color=fff`} 
                                                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                                                              alt={member.name} 
                                                          />
@@ -371,7 +371,7 @@ const Home = () => {
                                 >
                                     <div className="h-64 relative overflow-hidden">
                                         <img 
-                                            src={`http://localhost:5005${place.mainImage}`} 
+                                            src={`${ASSET_BASE_URL}${place.mainImage}`} 
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                                             alt={place.name} 
                                         />
@@ -480,7 +480,7 @@ const Home = () => {
                             >
                                 <div className="h-64 relative overflow-hidden">
                                     <img 
-                                        src={project.imageUrl ? `http://localhost:5005${project.imageUrl}` : "https://images.unsplash.com/photo-1541888941293-1e433f728f32?q=80&w=2070&auto=format&fit=crop"} 
+                                        src={project.imageUrl ? `${ASSET_BASE_URL}${project.imageUrl}` : "https://images.unsplash.com/photo-1541888941293-1e433f728f32?q=80&w=2070&auto=format&fit=crop"} 
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                                         alt={project.title} 
                                     />
@@ -566,7 +566,7 @@ const Home = () => {
                             >
                                 <div className="h-56 relative overflow-hidden">
                                     <img 
-                                        src={item.imageUrl ? `http://localhost:5005${item.imageUrl}` : 'https://images.unsplash.com/photo-1504711432869-5d39a33dd39a?q=80&w=2070&auto=format&fit=crop'} 
+                                        src={item.imageUrl ? `${ASSET_BASE_URL}${item.imageUrl}` : 'https://images.unsplash.com/photo-1504711432869-5d39a33dd39a?q=80&w=2070&auto=format&fit=crop'} 
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
                                         alt={item.title} 
                                     />

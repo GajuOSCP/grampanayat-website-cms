@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Landmark, Calendar, Building2, CheckCircle2, Clock, ArrowRight, Zap, Droplets, Layout } from 'lucide-react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 
 const DevelopmentProjects = () => {
     const [projects, setProjects] = useState([]);
@@ -85,7 +85,7 @@ const DevelopmentProjects = () => {
                             >
                                 <div className="w-full md:w-2/5 aspect-video md:aspect-auto relative overflow-hidden">
                                     <img 
-                                        src={project.image ? `http://localhost:5005${project.image}` : 'https://images.unsplash.com/photo-1541888941255-081d746dbdba?q=80&w=2070&auto=format&fit=crop'} 
+                                        src={project.image ? `${ASSET_BASE_URL}${project.image}` : 'https://images.unsplash.com/photo-1541888941255-081d746dbdba?q=80&w=2070&auto=format&fit=crop'} 
                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
                                         alt={project.title} 
                                     />

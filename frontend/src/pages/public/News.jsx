@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Share2, Calendar, ArrowRight, Newspaper, Landmark, Search, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 
 const News = () => {
     const [news, setNews] = useState([]);
@@ -80,7 +80,7 @@ const News = () => {
                         >
                             <div className="h-64 relative overflow-hidden">
                                 <img 
-                                    src={item.imageUrl ? `http://localhost:5005${item.imageUrl}` : 'https://images.unsplash.com/photo-1504711432869-5d39a33dd39a?q=80&w=2070&auto=format&fit=crop'} 
+                                    src={item.imageUrl ? `${ASSET_BASE_URL}${item.imageUrl}` : 'https://images.unsplash.com/photo-1504711432869-5d39a33dd39a?q=80&w=2070&auto=format&fit=crop'} 
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
                                     alt={item.title} 
                                 />

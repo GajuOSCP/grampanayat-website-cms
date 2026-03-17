@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Plus, Trash2, MapPin, Image as ImageIcon, X, Upload, Edit2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -113,7 +113,7 @@ const ManageTouristPlaces = () => {
                     <div key={place._id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden group">
                         <div className="aspect-video relative overflow-hidden">
                             <img 
-                                src={`http://localhost:5005${place.mainImage || '/placeholder.jpg'}`} 
+                                src={`${ASSET_BASE_URL}${place.mainImage || '/placeholder.jpg'}`} 
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
                                 alt={place.name} 
                             />

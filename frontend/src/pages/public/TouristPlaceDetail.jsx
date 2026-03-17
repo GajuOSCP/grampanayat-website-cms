@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, ArrowLeft, Landmark, History, Info, Navigation } from 'lucide-react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 
 const TouristPlaceDetail = () => {
     const { id } = useParams();
@@ -32,7 +32,7 @@ const TouristPlaceDetail = () => {
             {/* Hero Section */}
             <div className="relative h-[60vh] overflow-hidden">
                 <img 
-                    src={`http://localhost:5005${place.images[activeImage]}`} 
+                    src={`${ASSET_BASE_URL}${place.images[activeImage]}`} 
                     className="w-full h-full object-cover" 
                     alt={place.name} 
                 />
@@ -97,7 +97,7 @@ const TouristPlaceDetail = () => {
                                             onClick={() => setActiveImage(idx)}
                                             className={`aspect-square rounded-3xl overflow-hidden cursor-pointer border-4 transition-all duration-300 ${activeImage === idx ? 'border-gov-saffron shadow-lg' : 'border-white overflow-hidden shadow-sm'}`}
                                         >
-                                            <img src={`http://localhost:5005${img}`} className="w-full h-full object-cover" alt={`${place.name} ${idx + 1}`} />
+                                            <img src={`${ASSET_BASE_URL}${img}`} className="w-full h-full object-cover" alt={`${place.name} ${idx + 1}`} />
                                         </motion.div>
                                     ))}
                                 </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { Plus, Edit, Trash2, Construction, X, ImageIcon } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -120,7 +120,7 @@ const ManageProjects = () => {
                     <div key={project._id} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition">
                         <div className="relative h-48 bg-slate-100">
                             {project.imageUrl ? (
-                                <img src={`http://localhost:5005${project.imageUrl}`} alt={project.title} className="w-full h-full object-cover" />
+                                <img src={`${ASSET_BASE_URL}${project.imageUrl}`} alt={project.title} className="w-full h-full object-cover" />
                             ) : (
                                 <div className="flex items-center justify-center h-full text-slate-400"><ImageIcon size={48} /></div>
                             )}

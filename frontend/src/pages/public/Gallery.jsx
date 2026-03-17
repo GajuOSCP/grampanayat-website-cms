@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Image as ImageIcon, X, ZoomIn, Calendar, Landmark, Info } from 'lucide-react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 
 const Gallery = () => {
     const [images, setImages] = useState([]);
@@ -62,7 +62,7 @@ const Gallery = () => {
                         >
                             <div className="aspect-square relative overflow-hidden">
                                 <img 
-                                    src={`http://localhost:5005${image.imageUrl}`} 
+                                    src={`${ASSET_BASE_URL}${image.imageUrl}`} 
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                                     alt={image.caption} 
                                 />
@@ -117,7 +117,7 @@ const Gallery = () => {
                             <div className="flex flex-col lg:flex-row h-full">
                                 <div className="w-full lg:w-2/3 aspect-video lg:aspect-auto">
                                     <img 
-                                        src={`http://localhost:5005${selectedImage.imageUrl}`} 
+                                        src={`${ASSET_BASE_URL}${selectedImage.imageUrl}`} 
                                         className="w-full h-full object-cover" 
                                         alt={selectedImage.caption} 
                                     />

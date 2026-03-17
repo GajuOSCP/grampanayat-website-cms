@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/axios';
+import api, { ASSET_BASE_URL } from '../../api/axios';
 import { 
     Bell, Plus, Search, Trash2, Edit, FileText, 
     Calendar, CheckCircle2, XCircle, AlertCircle 
@@ -143,7 +143,7 @@ const ManageNotices = () => {
                                 </td>
                                 <td className="px-6 py-5">
                                     {notice.pdfUrl ? (
-                                        <a href={`http://localhost:5005${notice.pdfUrl}`} target="_blank" className="text-primary-700 hover:underline text-sm font-bold flex items-center gap-1">
+                                        <a href={`${ASSET_BASE_URL}${notice.pdfUrl}`} target="_blank" className="text-primary-700 hover:underline text-sm font-bold flex items-center gap-1">
                                             <FileText size={16} /> PDF पहा
                                         </a>
                                     ) : <span className="text-slate-300 text-xs">फाईल नाही</span>}

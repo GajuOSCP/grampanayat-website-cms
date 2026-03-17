@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSettings } from '../../context/SettingsContext';
+import { ASSET_BASE_URL } from '../../api/axios';
 import { Menu, X, Landmark, ChevronDown, Phone, Mail, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -59,7 +60,7 @@ const PublicNavbar = () => {
                     {/* Maharashtra Emblem & GP Info */}
                     <div className="flex items-center gap-4">
                         <img 
-                            src={settings?.logoUrl ? `http://localhost:5005${settings.logoUrl}` : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Emblem_of_Maharashtra.svg/1200px-Emblem_of_Maharashtra.svg.png"} 
+                            src={settings?.logoUrl ? `${ASSET_BASE_URL}${settings.logoUrl}` : "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Emblem_of_Maharashtra.svg/1200px-Emblem_of_Maharashtra.svg.png"} 
                             alt="Logo" 
                             className="h-14 md:h-20 object-contain drop-shadow-sm"
                         />
