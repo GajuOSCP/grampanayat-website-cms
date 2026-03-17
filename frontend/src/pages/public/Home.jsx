@@ -59,12 +59,37 @@ const Home = () => {
     }, []);
 
     const importantLinks = [
-        { name: 'Maharashtra Government', url: 'https://www.maharashtra.gov.in/', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Emblem_of_Maharashtra.svg/200px-Emblem_of_Maharashtra.svg.png' },
-        { name: 'DigiLocker', url: 'https://www.digilocker.gov.in/', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/52/DigiLocker_Logo.svg/250px-DigiLocker_Logo.svg.png' },
-        { name: 'Right to Information', url: 'https://rtionline.maharashtra.gov.in/', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Right_to_Information_Act_logo.svg' },
-        { name: 'MyGov India', url: 'https://www.mygov.in/', logo: 'https://www.mygov.in/sites/all/themes/mygov/images/mygov-logo.png' },
-        { name: 'Smart City Mission', url: 'https://smartcities.gov.in/', logo: 'https://smartcities.gov.in/assets/images/logo.png' }
+        { 
+            name: 'Maharashtra Government', 
+            url: 'https://www.maharashtra.gov.in/', 
+            logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Emblem_of_Maharashtra.svg/200px-Emblem_of_Maharashtra.svg.png' 
+        },
+        { 
+            name: 'DigiLocker', 
+            url: 'https://www.digilocker.gov.in/', 
+            logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/52/DigiLocker_Logo.svg/250px-DigiLocker_Logo.svg.png' 
+        },
+        { 
+            name: 'Right to Information', 
+            url: 'https://rtionline.maharashtra.gov.in/', 
+            logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Right_to_Information_Act_logo.svg/200px-Right_to_Information_Act_logo.svg.png' 
+        },
+        { 
+            name: 'MyGov India', 
+            url: 'https://www.mygov.in/', 
+            logo: 'https://static.mygov.in/rest/s3fs-public/mygov_logo.png' 
+        },
+        { 
+            name: 'Smart City Mission', 
+            url: 'https://smartcities.gov.in/', 
+            logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Smart_Cities_Mission_Logo.png/250px-Smart_Cities_Mission_Logo.png' 
+        }
     ];
+
+    const handleImageError = (e, name) => {
+        e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=f97316&color=fff&size=128&bold=true`;
+        e.target.onerror = null;
+    };
 
     const emergencyServices = [
         { title: 'अग्निशमन दल', phone: '१०१', icon: <Flame size={24} />, color: 'bg-red-500' },
@@ -694,7 +719,9 @@ const Home = () => {
                                     <img 
                                         src={link.logo} 
                                         alt={link.name} 
-                                        className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                                        onError={(e) => handleImageError(e, link.name)}
+                                        className="w-[80px] h-auto object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                                        style={{ width: '80px' }}
                                     />
                                 </div>
                                 <span className="text-[10px] font-black text-slate-900 text-center uppercase tracking-[0.2em] leading-tight opacity-40 group-hover:opacity-100 transition-opacity border-t border-slate-200 pt-6 w-full">{link.name}</span>
@@ -723,7 +750,13 @@ const Home = () => {
                                         className="bg-slate-50 p-12 rounded-[3.5rem] flex flex-col items-center justify-center gap-8 border border-slate-100 shadow-xl h-full active:scale-95 transition-transform"
                                     >
                                         <div className="h-28 w-full flex items-center justify-center">
-                                            <img src={link.logo} alt={link.name} className="max-h-full max-w-full object-contain" />
+                                            <img 
+                                                src={link.logo} 
+                                                alt={link.name} 
+                                                onError={(e) => handleImageError(e, link.name)}
+                                                className="w-[80px] h-auto object-contain" 
+                                                style={{ width: '80px' }}
+                                            />
                                         </div>
                                         <span className="text-xs font-black text-slate-900 text-center uppercase tracking-widest leading-relaxed border-t border-slate-200 pt-6 w-full">{link.name}</span>
                                     </a>
